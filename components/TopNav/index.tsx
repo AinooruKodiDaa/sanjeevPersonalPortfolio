@@ -9,6 +9,9 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { useCallback, useState } from "react";
 import { StyledTopNav } from "./styled";
+import { useThemeStore } from "@stores/darkMode";
+import { useTheme } from "next-themes";
+
 
 type NavigationItemProps = {
   text?: string;
@@ -19,8 +22,17 @@ type NavigationItemProps = {
 
 export default function TopNav(props: any) {
   const [value, setValue] = useState("");
+
+
+  const { theme, setTheme } = useTheme();
+  const toggleTheme = () =>
+    setTheme(theme === "light" ? "dark" : "light");
+
+
+  /**Dark Mode*/
+  const {isDarkMode, toggleDarkMode} = useThemeStore();
   return (
-    <StyledTopNav className="p-3">
+    <StyledTopNav darkMode={isDarkMode} className="p-3">
       <div className="container flex items-center justify-between">
         <div className="flex items-center justify-start gap-4">
           <CompanyIcon2 stroke="var(--colors-accent)" width={40} height={40} />
@@ -36,8 +48,11 @@ export default function TopNav(props: any) {
         </div>
 
         <div className="flex items-center justify-center gap-4">
+
+          
+          <Button onClick={toggleTheme}>{theme ==="light" ? "Light" :"Dark"}</Button>
           <NavigationItem route="home" text="Home" />
-          <NavigationItem route="about" text="About" />
+          {/* <NavigationItem route="about" text="About" /> */}
           <NavigationItem route="contact" text="Contact" />
           <NavigationItem route="dashboard" text="Dashboard" />
           <NavigationItem route="table" text="Table" />
@@ -47,6 +62,8 @@ export default function TopNav(props: any) {
     </StyledTopNav>
   );
 }
+
+
 
 const NavigationItem: React.FC<NavigationItemProps> = (props) => {
   const { text, icon, route } = props;

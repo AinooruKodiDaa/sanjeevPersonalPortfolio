@@ -19,10 +19,25 @@ type NavigationItemProps = {
 export default function SideNav(props: any) {
   const [value, setValue] = useState("");
   return (
-    <nav className="z-50 rounded-3xl p-3 bg-slate-800 drop-shadow-lg fixed left-2  top-[30%]">
+    <nav className="z-50 h-full p-3 bg-slate-800 drop-shadow-lg fixed left-0">
       <div className="flex flex-col items-center justify-between gap-4">
         <div className="flex flex-col items-center justify-center gap-4">
-        <CompanyIcon2 stroke="var(--colors-accent)" width={40} height={40} />
+
+        <Button
+      
+      typographyProps={{
+        size: "base",
+        weight: "normal",
+      }}
+      variant="text"
+      noPadding
+      color="secondary"
+      
+    >
+        <CompanyIcon2 stroke="currentColor" width={30} height={30} />
+    </Button>
+
+      
             {/* <SearchBar
               placeholder="Search..."
               wrapperClassName="w-[10rem]"
@@ -60,10 +75,12 @@ const NavigationItem: React.FC<NavigationItemProps> = (props) => {
   const router = useRouter();
   const { setRoute, route: currentRoute } = useNavigationStore();
 
+
   const onClickHandler = useCallback(() => {
     setRoute(route);
-    router.push("/", `/${route}`, { shallow: true });
+    router.push("/main", `/main/?tab=${route}`, { shallow: true });
   }, [route, router, setRoute]);
+
 
   return (
     <Button

@@ -9,7 +9,7 @@ export const StyledTable = styled("table", {
   width: "100%",
   borderCollapse: "collapse",
   textAlign: "left",
-  backgroundColor:"$white"
+  
   
 
 });
@@ -19,15 +19,15 @@ export const StyledCaption = styled("caption", {
   top: "0",
   textTransform: "uppercase",
   // borderRadius:"12px 12px 0px 0px",
-  backgroundColor: "rgba(3,46,175)",
-  color: "$white",
+  backgroundColor: "rgba($rgbAccent,0.5)",
+  color: "inherit",
 });
 
 export const StyledTableHead = styled("th", {
   position: "sticky",
   top: "0",
-  backgroundColor: "$white",
-  color: "$accent",
+  backgroundColor: "$secondary",
+  color: "$primary",
   padding: "0.5rem 1rem",
 
   "@media(max-width: 920px)":{
@@ -35,18 +35,20 @@ export const StyledTableHead = styled("th", {
   }
 });
 export const StyledTableRow = styled("tr", {
-  backgroundColor: "$white",
+  
   
 
   "@media(min-width: 920px)":{
   "&:hover":{
     color:"$accent",
     
+    transition: "color 150ms ease-in-out"
+    
   },
 },
 
   "&:nth-of-type(2n)": {
-    backgroundColor: "rgba(0,0,0,0.05)",
+    backgroundColor: "rgba($rgbSecondary,0.1)",
   },
 });
 
@@ -78,8 +80,8 @@ export const StyledTableDataCell = styled("td", {
 export const StyledTableFooter = styled("tfoot", {
   position: "sticky",
   bottom: "0",
-  backgroundColor: "$white",
-  color: "$accent",
+  backgroundColor: "$accent",
+  color: "inherit",
   padding: "0.5rem 1rem",
   // width:"100%",
 

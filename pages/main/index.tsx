@@ -7,6 +7,7 @@ import { Table } from "@layouts/Table";
 import { AppLayout } from "@layouts/layout";
 import { useNavigationStore } from "@stores/navigation";
 import React from "react";
+import { ModalProvider } from "sharedContext";
 
 type Props = {
   children?: React.ReactNode;
@@ -23,7 +24,7 @@ const MainPage: Page = (props) => {
   return (
 
 
-    <>
+    <ModalProvider>
     {route === "home" && <Home/>}
     {route === "contact" && <Contact/>}
     {route === "about" && <About/>}
@@ -31,7 +32,7 @@ const MainPage: Page = (props) => {
     {route === "dashboard" && <Dashboard/>}
     {route === "table" && <Table/>}
 
-    </>
+    </ModalProvider>
   );
 };
 

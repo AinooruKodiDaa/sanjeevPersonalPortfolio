@@ -7,7 +7,8 @@
 :root {
   --fontColor: 0, 0, 0;
   --backgroundColor: 237, 238, 239;
-  --primaryColor: 3, 126, 255;
+  /* --primaryColor: 3, 126, 255; */
+  --primaryColor: 0, 194, 84;
   
 }
 

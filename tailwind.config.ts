@@ -11,7 +11,8 @@ const config: Config = {
       colors: {
         primary: "#EDEEEF",
         secondary: "#686A70",
-        accent: "#037EFF",
+        // accent: "#037EFF",
+        accent:"#00C254",
       },
       fontSize: {
         xs: "0.75rem", // Extra Small

@@ -17,17 +17,20 @@ export const AppLayout: React.FC<Props> = (props) => {
   const pageHeader = extractTabPath(router.asPath) ?? "Home";
 
   return (
-    <div>
+    <div >
       <TopNav />
       {/* <SideNav /> */}
 
       <header className="container p-3">
-        <Heading color="secondary" size="sm" as="h1" weight="normal">
-         {`${pageHeader}`}
+        {/* <input type="color"/> */}
+        <Heading color="accent" size="2xl" weight="normal">
+          {`${pageHeader}`}
         </Heading>
       </header>
-      {props.children}
-      <PageFooter/>
+     
+        {props.children}
+        {/* <PageFooter /> */}
+      
     </div>
   );
 };

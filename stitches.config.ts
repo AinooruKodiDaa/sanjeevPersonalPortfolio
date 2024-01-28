@@ -1,5 +1,8 @@
 // stitches.config.ts
 import { createStitches } from "@stitches/react";
+import { commonColors } from "colorConst";
+
+
 
 export const {
   styled,
@@ -18,12 +21,16 @@ export const {
       rgbPrimary: "237, 238, 239",
       secondary: "#686A70",
       rgbSecondary: "104, 106, 112",
-      accent: "#037EFF",
-      rgbAccent: "3, 126, 255",
+      // accent: "#037EFF",
+      // rgbAccent: "3, 126, 255",
+      accent:"#00C254",
+      rgbAccent: "0, 194, 84",
       //used across//
       //some other colors//
       white: "#ffff",
       rgbWhite: "255, 255, 255",
+      black: "#00000",
+      rgbBlack: "0, 0, 0",
       //some other colors//
     },
     fontSizes: {
@@ -67,3 +74,32 @@ export const {
     marginX: (value: any) => ({ marginLeft: value, marginRight: value }),
   },
 });
+
+
+// define the dark theme using the de-constructed function
+export const darkTheme = createTheme({ 
+  colors: { 
+    text: commonColors.secondary,
+    background: commonColors.black
+  } as any
+});
+
+export const lightTheme = createTheme({ 
+  colors: { 
+    text: commonColors.black as any,
+    background: commonColors.primary
+  } as any
+});
+
+
+const GlobalStyles = globalCss({
+  body: {
+    //we can call the color token values with the
+    //$ prefix in a string
+    background: "$background", 
+    color: "$text"
+  }
+})
+
+//we can declare the styles here or in pages/_app.tsx
+GlobalStyles();

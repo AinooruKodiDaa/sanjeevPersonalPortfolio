@@ -3,6 +3,6 @@ export type FontWeights = "normal" | "bold" | "extrabold";
 export type FontColors =
   | "primary"
   | "secondary"
-  | "accent" |"inherit"
+  | "accent" | "black" | "inherit"
 export type TextCases = 
 "uppercase" | "lowercase" | "capitalize" | "none";

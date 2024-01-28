@@ -64,6 +64,10 @@ export const FONT_COLORS = {
   accent: {
     color: "$accent",
   },
+
+  black: {
+    color: "$black",
+  },
 };
 
 export const FONT_TEXT_CASE = {

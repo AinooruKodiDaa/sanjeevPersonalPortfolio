@@ -42,14 +42,24 @@ export const Table: React.FC<any> = (props) => {
   );
   const averageSalary: number = totalSalary / records.length;
 
-
-
   return (
     <div className="container px-3">
       <title>Responsive table</title>
-      
+      <div className="grid grid-cols-2 my-3">
+        <input
+          type="search"
+          placeholder="Search"
+          className="border-[1px] rounded-md px-3 py-1 border-accent w-[15rem]"
+        />
+        <input
+          type="search"
+          placeholder="Search"
+          className="border-[1px] rounded-md px-3 py-1 border-accent w-[15rem]"
+        />
+      </div>
       <div className="h-[70vh] overflow-auto">
         <StyledTable>
+          {/* <StyledCaption></StyledCaption> */}
           <StyledTableRow>
             <StyledTableHead>
               <Heading color="inherit" size="sm" as="h2" weight="bold">
@@ -87,11 +97,7 @@ export const Table: React.FC<any> = (props) => {
           </StyledTableRow>
 
           {records.map((record, index) => (
-            <StyledTableRow
-              key={record.id}
-              className="cursor-pointer"
-              
-            >
+            <StyledTableRow key={record.id} className="cursor-pointer">
               <StyledTableDataCell data-cell="name">
                 <Text color="inherit" size="sm" as="p" weight="normal">
                   {record.name}
@@ -113,9 +119,19 @@ export const Table: React.FC<any> = (props) => {
                 </Text>
               </StyledTableDataCell>
               <StyledTableDataCell data-cell="employment">
-                <Text color="inherit" size="sm" as="p" weight="normal">
-                  {record.employment}
-                </Text>
+                
+                <div
+              className={`${
+                record.employment === "Active"
+                  ? "bg-[rgba(0,194,84,0.7)]"
+                  : "bg-[rgba(194,178,0,0.7)]"
+              } " rounded-lg p-1 text-center w-[5rem]`}
+            >
+              <Text as="p" color="primary" weight="normal" size="sm">
+                {record.employment}
+              </Text>
+            </div>
+                
               </StyledTableDataCell>
               <StyledTableDataCell data-cell="wealth">
                 <Text color="inherit" size="sm" as="p" weight="normal">
@@ -124,78 +140,66 @@ export const Table: React.FC<any> = (props) => {
               </StyledTableDataCell>
             </StyledTableRow>
           ))}
-
-       
         </StyledTable>
-        
-        <div className="p-3 bg-white sticky bottom-0 flex justify-between gap-1">
 
-        <Text color="accent" size="sm" as="p" weight="bold">
-                Total records : {records.length}
-              </Text>
-              <div className="flex justify-between gap-1">
-              <Button
-                  typographyProps={{
-                    size: "base",
-                    weight: "normal",
-                  }}
-                  variant="text"
-                  color="secondary"
-                >
-                  {`< Prev`}
-                </Button>
-                <Button
-                  typographyProps={{
-                    size: "base",
-                    weight: "normal",
-                  }}
-                  variant="text"
-                  color="secondary"
-                >
-                  1
-                </Button>
-                <Button
-                  typographyProps={{
-                    size: "base",
-                    weight: "normal",
-                  }}
-                  variant="text"
-                  color="secondary"
-                >
-                  2
-                </Button>
-                <Button
-                  typographyProps={{
-                    size: "base",
-                    weight: "normal",
-                  }}
-                  variant="text"
-                  color="secondary"
-                >
-                  3
-                </Button>
-                <Button
-                  typographyProps={{
-                    size: "base",
-                    weight: "normal",
-                  }}
-                  variant="text"
-                  color="secondary"
-                >
-                  {`Next >`}
-                </Button>
-              </div>
-           
-              </div>
-      </div>
-      <div className="py-20">
-        Some other content
-      </div>
-      <div className="py-20">
-        Some other content
-      </div>
-      <div className="py-20">
-        Some other content
+        <div className="px-3 bg-secondary sticky bottom-0 flex items-center justify-between gap-1">
+          <Text color="primary" size="sm" as="p" weight="bold">
+            Total records : {records.length}
+          </Text>
+          <div className="flex justify-between gap-1">
+            <Button
+              typographyProps={{
+                size: "base",
+                weight: "normal",
+              }}
+              
+              variant="text"
+              color="primary"
+            >
+              {`< Prev`}
+            </Button>
+            <Button
+              typographyProps={{
+                size: "base",
+                weight: "normal",
+              }}
+              variant="text"
+              color="primary"
+            >
+              1
+            </Button>
+            <Button
+              typographyProps={{
+                size: "base",
+                weight: "normal",
+              }}
+              variant="text"
+              color="primary"
+            >
+              2
+            </Button>
+            <Button
+              typographyProps={{
+                size: "base",
+                weight: "normal",
+              }}
+              variant="text"
+              color="primary"
+            >
+              3
+            </Button>
+            <Button
+              typographyProps={{
+                size: "base",
+                weight: "normal",
+              }}
+              variant="text"
+              color="primary"
+            >
+              {`Next >`}
+            </Button>
+          </div>
+        </div>
       </div>
     </div>
   );

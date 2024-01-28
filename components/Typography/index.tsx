@@ -88,7 +88,7 @@ const TextComponent: React.FC<TextProps> = withTooltip((props) => {
 
   return (
     <StyledTypography
-      color={color}
+      color={color as any}
       size={size}
       weight={weight as any}
       as={as}

@@ -2,7 +2,7 @@
 
 export const PageFooter: React.FC<any> = (props: any) => {
   return (
-    <footer className="bg-secondary w-full p-3 grid-flow-col grid">
+    <footer className="bg-secondary min-h-80 w-full p-3 grid-flow-col grid">
       <div>
         <h3 className="text-white">Contact Information</h3>
         <p>Email: info@example.com</p>

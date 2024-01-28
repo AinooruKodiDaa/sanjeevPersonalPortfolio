@@ -2,7 +2,7 @@ const CustomUtils = ({ addUtilities }) => {
   addUtilities({
  
     ".custom-scroll-bar": {
-      scrollbarWidth: "thin",
+      scrollbarWidth: "0px",
       scrollbarColor: "var(--colors-gray) transparent",
     },
 
@@ -15,7 +15,7 @@ const CustomUtils = ({ addUtilities }) => {
     },
 
     ".custom-scroll-bar::-webkit-scrollbar-thumb ": {
-      backgroundColor: "var(--colors-gray)",
+      backgroundColor: "transparent",
       borderRadius: "6px",
       border: "3px solid transparent",
     },
